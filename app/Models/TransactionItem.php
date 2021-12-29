@@ -16,16 +16,16 @@ class TransactionItem extends Model
         'transactions_id',
     ];
 
-    public function users()
+    public function user()
     {
-        $this->hasMany(user::class, 'users_id', 'id');
+        $this->belongsTo(user::class, 'users_id', 'id');
     }
-    public function products()
+    public function product()
     {
-        $this->hasMany(Product::class, 'products_id', 'id');
+        $this->belongsTo(Product::class, 'products_id', 'id');
     }
-    public function transactions()
+    public function transaction()
     {
-        $this->hasMany(Transaction::class, 'transactions_id', 'id');
+        $this->belongsTo(Transaction::class, 'transactions_id', 'id');
     }
 }

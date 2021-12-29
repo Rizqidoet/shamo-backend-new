@@ -18,13 +18,18 @@ class Product extends Model
         'categories_id',
     ];
 
-    public function product_galleries()
+    public function transaction_items()
     {
-        return $this->belongsTo(ProductGallery::class, 'products_id', 'id');
+        return $this->hasMany(TransactionItem::class, 'products_id', 'id');
     }
 
-    public function product_categories()
+    public function product_galleries()
     {
-        return $this->hasMany(ProductCategory::class, 'categories_id', 'id');
+        return $this->hasMany(ProductGallery::class, 'products_id', 'id');
+    }
+
+    public function product_category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
     }
 }

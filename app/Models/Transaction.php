@@ -20,11 +20,11 @@ class Transaction extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function transaction_item()
+    public function transaction_items()
     {
-        return $this->belongsTo(TransactionItem::class, 'transactions_id', 'id');
+        return $this->hasMany(TransactionItem::class, 'transactions_id', 'id');
     }
 }
